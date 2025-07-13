@@ -78,18 +78,6 @@ The backend URL is currently hardcoded to `http://localhost:9090`. If your backe
 - `src/components/TaskForm.vue`
 - `src/components/TaskItem.vue`
 
-## CORS Configuration
-
-Make sure your Spring Boot backend allows CORS from `http://localhost:3000`. You can do this by adding the following to your Spring Boot application:
-
-```java
-@CrossOrigin(origins = "http://localhost:3000")
-@RestController
-@RequestMapping("/api/tasks")
-public class TaskController {
-    // Your controller code
-}
-```
 
 ## Building for Production
 
@@ -97,17 +85,6 @@ public class TaskController {
 ```bash
 npm run build
 ```
-
-2. The built files will be in the `dist` directory, ready for deployment.
-
-## Deployment
-
-For AWS deployment, you can:
-
-1. Build the application for production
-2. Upload the `dist` folder contents to an S3 bucket configured for static website hosting
-3. Configure CloudFront for better performance (optional)
-4. Make sure your backend API allows CORS from your frontend domain
 
 ## Troubleshooting
 
