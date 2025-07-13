@@ -209,6 +209,8 @@ const deleteTask = async () => {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .task-title-section {
@@ -218,6 +220,7 @@ const deleteTask = async () => {
   flex: 1;
   margin-right: 15px;
   gap: 12px;
+  min-width: 0; /* Allow shrinking */
 }
 
 .task-title {
@@ -225,6 +228,8 @@ const deleteTask = async () => {
   font-weight: 600;
   color: #333;
   margin: 0;
+  word-wrap: break-word;
+  flex: 1;
 }
 
 .status-completed {
@@ -253,6 +258,7 @@ const deleteTask = async () => {
   display: flex;
   gap: 8px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .task-actions button {
@@ -263,6 +269,7 @@ const deleteTask = async () => {
   font-size: 12px;
   font-weight: 500;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .task-actions button:disabled {
@@ -411,6 +418,69 @@ const deleteTask = async () => {
 
 .cancel-btn:hover {
   background: #5a6268;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .task-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .task-title-section {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .task-title {
+    font-size: 1.1rem;
+  }
+  
+  .task-actions {
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .task-actions button {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 11px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-item {
+    padding: 15px;
+  }
+  
+  .task-title {
+    font-size: 1rem;
+  }
+  
+  .task-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .task-actions button {
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .status-completed,
+  .status-pending {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
 }
 </style>
 
